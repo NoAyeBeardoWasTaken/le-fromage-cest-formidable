@@ -1,0 +1,91 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title>
+      nothing to see here
+    </title>
+    <meta charset = "UTF-8">
+    <style>
+      h1 {
+        font-size = "40px";
+      }
+      p {
+        font-family = "Comic Sans MS";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      ASSIGNMENT ANSWERS
+    </h1>
+    <p>
+      #include <iostream>
+      #include <vector>
+      #include <string>
+      #include <cmath>
+      
+      void getkwRating(int& rating, float& price) 
+      {
+          switch (rating)
+          {
+              case 7:
+                  price = 0;
+                  break;
+              case 22:
+                  price = 0.005;
+                  break;
+              case 50:
+                  price = 0.01;
+                  break;
+              default:
+                  std::cout << "kW rating must be 7, 22, or 50" << std::endl;
+                  std::cout << "What is the kW rating of the station? ";
+                  std::cin >> rating;
+                  break;
+          }
+      }
+      
+      int main() {
+          int currentMiles, startMiles, kwRating, chargingStations;
+          float pricePerMile = 2909.0;
+          float totalJourneyCost, totalMiles = 0;
+          std::vector<int> milesTravelled;
+          std::vector<float> journeyStage;
+          
+          // Get journey details
+          std::cout << "What is the mileage of your car at the start of this journey? ";
+          std::cin >> startMiles;
+          std::cout << "How many charging stations are you going to be visiting? ";
+          std::cin >> chargingStations;
+          
+          for(int i = 0; i < chargingStations; i++)
+          {
+              // Calculate and store the cost of each stage of the journey
+              std::cout << "What is your mileage at your current charging station? ";
+              std::cin >> currentMiles;
+              kwRating = 0;
+              while (pricePerMile == 2909.0)
+              {
+                  getkwRating(kwRating, pricePerMile);
+              }
+              
+              milesTravelled.push_back(currentMiles - startMiles);
+              startMiles = currentMiles;
+              journeyStage.push_back(pricePerMile * milesTravelled[i]);
+              pricePerMile = 2909.0;
+          }
+          
+          for(int i = 0; i < chargingStations; i++)
+          {
+              std::cout << "Cost of this stage of the journey: " << journeyStage[i] << std::endl;
+              totalJourneyCost += journeyStage[i];
+              totalMiles += milesTravelled[i];
+          }
+          std::cout << "Total cost: " << std::round(totalJourneyCost * 100) / 100.0 << std::endl;
+          std::cout << "Total miles: " << totalMiles;
+      
+          return 0;
+      }
+    </p>
+  </body>
+</html>
