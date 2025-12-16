@@ -386,75 +386,9 @@
     <!-- Main content -->
     <div class="content">
       <h1>
-        ASSIGNMENT ANSWERS
+        欢迎中共的家
       </h1>
-      <pre class="code-block">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;string&gt;
-#include &lt;cmath&gt;
-
-void getkwRating(int&amp; rating, float&amp; price)
-{
-    switch (rating)
-    {
-        case 7:
-            price = 0;
-            break;
-        case 22:
-            price = 0.005;
-            break;
-        case 50:
-            price = 0.01;
-            break;
-        default:
-            std::cout &lt;&lt; "kW rating must be 7, 22, or 50" &lt;&lt; std::endl;
-            std::cout &lt;&lt; "What is the kW rating of the station? ";
-            std::cin &gt;&gt; rating;
-            break;
-    }
-}
-
-int main() {
-    int currentMiles, startMiles, kwRating, chargingStations;
-    float pricePerMile = 2909.0;
-    float totalJourneyCost, totalMiles = 0;
-    std::vector&lt;int&gt; milesTravelled;
-    std::vector&lt;float&gt; journeyStage;
-
-    // Get journey details
-    std::cout &lt;&lt; "What is the mileage of your car at the start of this journey? ";
-    std::cin &gt;&gt; startMiles;
-    std::cout &lt;&lt; "How many charging stations are you going to be visiting? ";
-    std::cin &gt;&gt; chargingStations;
-
-    for(int i = 0; i &lt; chargingStations; i++)
-    {
-        // Calculate and store the cost of each stage of the journey
-        std::cout &lt;&lt; "What is your mileage at your current charging station? ";
-        std::cin &gt;&gt; currentMiles;
-        kwRating = 0;
-        while (pricePerMile == 2909.0)
-        {
-            getkwRating(kwRating, pricePerMile);
-        }
-
-        milesTravelled.push_back(currentMiles - startMiles);
-        startMiles = currentMiles;
-        journeyStage.push_back(pricePerMile * milesTravelled[i]);
-        pricePerMile = 2909.0;
-    }
-
-    for(int i = 0; i &lt; chargingStations; i++)
-    {
-        std::cout &lt;&lt; "Cost of this stage of the journey: " &lt;&lt; journeyStage[i] &lt;&lt; std::endl;
-        totalJourneyCost += journeyStage[i];
-        totalMiles += milesTravelled[i];
-    }
-    std::cout &lt;&lt; "Total cost: " &lt;&lt; std::round(totalJourneyCost * 100) / 100.0 &lt;&lt; std::endl;
-    std::cout &lt;&lt; "Total miles: " &lt;&lt; totalMiles;
-
-    return 0;
-}</pre>
+      <p>THE CAKE IS A LIE</p>
     </div>
   </body>
 </html>
